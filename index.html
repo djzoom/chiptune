@@ -271,10 +271,13 @@ input[type=range]{accent-color:var(--accent);}
             <label class="field wide"><span class="field-label">可复现种子 / SEED</span><span class="numeric-row"><input type="number" id="inSeed" min="0" step="1" value="0" inputmode="numeric"><button class="mini-action" id="btnHelp" type="button" aria-label="查看种子说明 SEED HELP">?</button></span></label>
           </div>
         </div>
-        <button class="random-btn" id="btnRandomize" type="button">
-          <span><strong>随机编曲</strong><small>RANDOMIZE / NEW SEED</small></span>
-        </button>
-        <div id="help">相同的风格、调性、长度、速度与种子会生成完全相同的乐曲。大型“随机编曲”键是唯一随机入口；手动输入种子用于精确复现。<br>Same style, key, bars, BPM and seed always rebuild the identical tune. RANDOMIZE is the only random entry; type a seed to reproduce a piece exactly.</div>
+        <div style=”display:grid;grid-template-columns:1fr 1fr;gap:6px;”>
+          <button class=”random-btn” id=”btnRandomize” type=”button” style=”margin-top:0;grid-column:auto;”>
+            <span><strong>随机编曲</strong><small>RANDOMIZE / NEW SEED</small></span>
+          </button>
+          <button class=”transport-key primary” id=”btnPlay” type=”button” style=”min-height:66px;display:flex;align-items:center;justify-content:center;”>▶ 播放/停止 PLAY/STOP</button>
+        </div>
+        <div id=”help”>相同的风格、调性、长度、速度与种子会生成完全相同的乐曲。大型”随机编曲”键是唯一随机入口；手动输入种子用于精确复现。<br>Same style, key, bars, BPM and seed always rebuild the identical tune. RANDOMIZE is the only random entry; type a seed to reproduce a piece exactly.</div>
       </div>
     </section>
 
@@ -289,12 +292,9 @@ input[type=range]{accent-color:var(--accent);}
     </section>
 
     <section class="panel transport-panel" aria-labelledby="transportTitle">
-      <div class="panel-head"><span id="transportTitle">04 · 传输与输出</span><span class="code">MASTER / EXPORT</span></div>
+      <div class="panel-head"><span id="transportTitle">04 · 母线与录音</span><span class="code">MASTER / RECORD</span></div>
       <div class="pbody transport-body">
-        <div class="transport-bank">
-          <button class="transport-key primary" id="btnPlay" type="button">▶ 播放 PLAY</button>
-          <button class="transport-key danger" id="btnStop" type="button">■ 停止 STOP</button>
-        </div>
+        <button class="transport-key" id="btnRecord" type="button" style="margin-bottom:6px;">◎ 录音 RECORD</button>
         <div class="master-block">
           <div class="section-label">母线 MASTER BUS</div>
           <div class="master-grid">
@@ -305,12 +305,6 @@ input[type=range]{accent-color:var(--accent);}
             <div class="meter" aria-label="输出电平 OUTPUT LEVEL"><div class="meter-fill" id="meterFill"></div></div>
           </div>
         </div>
-        <div class="export-bank">
-          <button class="export-btn" id="btnMidi" type="button">导出工程 PROJECT <span>MIDI</span></button>
-          <button class="export-btn" id="btnWav" type="button">导出混音 MIXDOWN <span>WAV</span></button>
-          <button class="export-btn" id="btnStems" type="button">导出分轨 STEMS <span>4×WAV</span></button>
-        </div>
-        <div class="safety-note">SPACE = 播放/停止 PLAY/STOP · 导出前请允许浏览器多文件下载 ALLOW MULTI-FILE DOWNLOADS</div>
       </div>
     </section>
   </main>
@@ -1133,13 +1127,10 @@ function bindUI(){
     el.textContent='循环 LOOP '+(el.dataset.on==='1'?'ON':'OFF');
     el.setAttribute('aria-checked',String(el.dataset.on==='1'));
   };
-  $('btnPlay').onclick=()=>{ensureAC();startPlay();};
-  $('btnStop').onclick=stopPlay;
+  $('btnPlay').onclick=()=>{ensureAC();togglePlay();};
+  $('btnRecord').onclick=exportWav;
   $('masterVol').oninput=e=>{MIX.master=parseInt(e.target.value,10);applyVolumes();};
   $('toneCtrl').oninput=e=>{MIX.tone=parseInt(e.target.value,10);applyVolumes();};
-  $('btnMidi').onclick=()=>download(midiBlob(),fileBase()+'.mid');
-  $('btnWav').onclick=exportWav;
-  $('btnStems').onclick=exportStems;
   $('modebtn').onclick=()=>{
     modeName=MODE_ORDER[(MODE_ORDER.indexOf(modeName)+1)%MODE_ORDER.length];
     document.body.className='theme-'+modeName;
