@@ -1,7 +1,9 @@
 # CHIPTUNE — 8-BIT 音乐产生器
 
 单文件、零依赖、零网络请求的 NES(红白机) 2A03 风格四声道音乐生成器。
-打开 `index.html` 即可使用。
+打开 `index.html` 即可使用，或直接在线试玩：
+
+**▶ https://djzoom.github.io/chiptune/**
 
 ![screenshot](https://raw.githubusercontent.com/djzoom/chiptune/main/docs/screenshot.png)
 
@@ -34,13 +36,12 @@
 
 ## 内嵌像素字体
 
-页面内嵌两个子集化 woff2（共约 14KB，保持零网络请求）：
+页面内嵌一个子集化 woff2（约 13KB，保持零网络请求）：
 
 | 字体 | 来源 | 用途 | 许可 |
 |---|---|---|---|
-| FusionPixel12 | [MisekiBitmap](https://github.com/TakWolf/miseki-bitmap-font)（缝合像素字体 12px 简中源，11×11 点阵） | 全站正文 | SIL OFL 1.1 |
-| FusionPixel8 | [BoutiqueBitmap7x7](https://fontspeech.blogspot.com/)（8px 源，7×7 点阵） | 框线/方块/箭头补字 + 卷帘标签 | 自由许可 |
+| FusionPixel12 | [MisekiBitmap](https://github.com/TakWolf/miseki-bitmap-font)（缝合像素字体 12px 简中源，11×11 点阵） | 全站（含界面框线与卷帘标签） | SIL OFL 1.1 |
 
 ## License
 
-代码 MIT（见 LICENSE）。内嵌字体子集保留各自原许可。
+代码 MIT（见 LICENSE）。内嵌字体子集保留其原许可。
