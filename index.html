@@ -271,12 +271,10 @@ input[type=range]{accent-color:var(--accent);}
             <label class="field wide"><span class="field-label">可复现种子 / SEED</span><span class="numeric-row"><input type="number" id="inSeed" min="0" step="1" value="0" inputmode="numeric"><button class="mini-action" id="btnHelp" type="button" aria-label="查看种子说明 SEED HELP">?</button></span></label>
           </div>
         </div>
-        <div style=”display:grid;grid-template-columns:1fr 1fr;gap:6px;”>
-          <button class=”random-btn” id=”btnRandomize” type=”button” style=”margin-top:0;grid-column:auto;”>
-            <span><strong>随机编曲</strong><small>RANDOMIZE / NEW SEED</small></span>
-          </button>
-          <button class=”transport-key primary” id=”btnPlay” type=”button” style=”min-height:66px;display:flex;align-items:center;justify-content:center;”>▶ 播放/停止 PLAY/STOP</button>
-        </div>
+        <button class=”random-btn” id=”btnRandomize” type=”button”>
+          <span><strong>随机编曲</strong><small>RANDOMIZE / NEW SEED</small></span>
+        </button>
+        <button id=”btnPlay” type=”button” style=”width:100%;min-height:40px;border:1px solid var(--ok);background:linear-gradient(#243038,#11181c);color:var(--ok);cursor:pointer;font-size:1rem;letter-spacing:.08em;display:flex;align-items:center;justify-content:center;”>▶ 播放/停止 PLAY/STOP</button>
         <div id=”help”>相同的风格、调性、长度、速度与种子会生成完全相同的乐曲。大型”随机编曲”键是唯一随机入口；手动输入种子用于精确复现。<br>Same style, key, bars, BPM and seed always rebuild the identical tune. RANDOMIZE is the only random entry; type a seed to reproduce a piece exactly.</div>
       </div>
     </section>
