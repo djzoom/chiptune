@@ -1,11 +1,11 @@
 # CHIPTUNE — 8-BIT 音乐产生器
 
-单文件、零依赖、零网络请求的 NES(红白机) 2A03 风格四声道音乐生成器。
+单文件、零依赖、零网络请求的 NES(红白机) 2A03 四声道音乐生成器，采用一屏工业控制台界面。
 打开 `index.html` 即可使用，或直接在线试玩：
 
 **▶ https://djzoom.github.io/chiptune/**
 
-![screenshot](https://raw.githubusercontent.com/djzoom/chiptune/main/docs/screenshot.png)
+![工业控制台界面](docs/screenshot-industrial.png)
 
 ## 特性
 
@@ -23,14 +23,17 @@
   - MIDI：SMF Type-1，四轨 + tempo，Logic / GarageBand 直接打开
   - WAV：混音整曲 + 四轨分轨，OfflineAudioContext 渲染，16-bit PCM 44.1kHz
 - **可视化**：Canvas 像素化钢琴卷帘，播放头与声音同步，磷光余辉效果
-- **三种主题**（右上角 [主题] 键切换）
-  - 彩色：红白机游戏画面风格，颜色全部取自 NES PPU 2C02 标准 54 色调色板
-  - 绿 / 棕：1980 年代单色 CRT 磷光终端（P1 绿 / P3 琥珀），扫描线 + 辉光 + 开机自检
+- **一屏工业控制台**：按编曲、监视、声道、母线/导出分区，手机竖屏、手机横屏与 MacBook Pro 均无需页面滚动
+- **专业混音控制**：四轨独立音量、Mute、Solo；母线输出、滤波明度与实时电平表
+- **三套机械框架**（右上角“外观”键循环切换）
+  - AIRFRAME：冷灰航空仪表板
+  - DIESEL ARMOR：厚重黄铜与柴油朋克装甲边框
+  - STEAM BRASS：双线铜框、圆形铆钉与蒸汽朋克配色
 
 ## 操作
 
-- 空格键 = 播放 / 停止；骰子按钮随机换种子；`?` 查看可复现说明
-- 每轨独立音量（点击/拖动字符条）与静音
+- 空格键 = 播放 / 停止；大型“随机编曲”键是唯一随机入口；`?` 查看可复现说明
+- 每轨独立音量推子、Mute 与 Solo；母线推子会同步影响实时播放与 WAV 导出
 - DAW 后期：导入 MIDI 后挂 chiptune 音源（如免费的 Magical 8bit Plug 2），
   或把四轨分轨 WAV 拉进 DAW 做 EQ / 压缩 / 残响
 
