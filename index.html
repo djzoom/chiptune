@@ -135,8 +135,8 @@ input[type=range]{accent-color:var(--accent);}
 }
 .chk[data-on="1"],.toggle-btn.active{color:#071013;background:var(--ok);border-color:var(--ok);}
 .random-btn{
-  position:relative;display:grid;grid-template-columns:38px 1fr;align-items:center;width:100%;min-height:66px;
-  margin-top:auto;border:2px solid var(--warn);background:linear-gradient(180deg,#e6ad42,#b36d18);color:#150d03;
+  position:relative;display:grid;grid-template-columns:38px 1fr;align-items:center;width:100%;height:66px;
+  margin-top:auto;flex-shrink:0;border:2px solid var(--warn);background:linear-gradient(180deg,#e6ad42,#b36d18);color:#150d03;
   cursor:pointer;text-align:left;box-shadow:inset 0 0 0 3px rgba(25,13,2,.52),0 3px 0 #5d3510;
 }
 .random-btn::before{content:'↯';display:grid;place-items:center;height:100%;border-right:1px solid rgba(28,14,2,.36);font-size:2rem;}
@@ -274,7 +274,7 @@ input[type=range]{accent-color:var(--accent);}
         <button class=”random-btn” id=”btnRandomize” type=”button”>
           <span><strong>随机编曲</strong><small>RANDOMIZE / NEW SEED</small></span>
         </button>
-        <button id=”btnPlay” type=”button” style=”width:100%;min-height:40px;border:1px solid var(--ok);background:linear-gradient(#243038,#11181c);color:var(--ok);cursor:pointer;font-size:1rem;letter-spacing:.08em;display:flex;align-items:center;justify-content:center;”>▶ 播放/停止 PLAY/STOP</button>
+        <button id=”btnPlay” type=”button” style=”width:100%;height:40px;flex-shrink:0;border:1px solid var(--ok);background:linear-gradient(#243038,#11181c);color:var(--ok);cursor:pointer;font-size:1rem;letter-spacing:.08em;display:flex;align-items:center;justify-content:center;”>▶ 播放/停止 PLAY/STOP</button>
         <div id=”help”>相同的风格、调性、长度、速度与种子会生成完全相同的乐曲。大型”随机编曲”键是唯一随机入口；手动输入种子用于精确复现。<br>Same style, key, bars, BPM and seed always rebuild the identical tune. RANDOMIZE is the only random entry; type a seed to reproduce a piece exactly.</div>
       </div>
     </section>
